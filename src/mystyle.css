@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+    .btn-purple {
+        @apply text-purple-600 uppercase mt-3 font-semibold py-1 text-xs border border-purple-500 text-center px-2 rounded-lg hover:translate-x-1 hover:text-white hover:bg-purple-500 duration-300 hover:border-transparent focus:outline-none focus:border-transparent focus:ring-2 focus:ring-pink-600 focus:ring-offset-1 dark:text-white;
+      }
+      .my-card {
+        @apply max-w-sm mx-auto bg-white dark:bg-gray-800 space-y-4 p-12 border-2 rounded-lg shadow-md sm:flex sm:flex-row sm:space-x-12 sm:items-center sm:mx-0 sm:flex-shrink-0 sm:space-y-0  sm:dark:hover:bg-gray-700;
+      }
+      .image-logo{
+        @apply h-24 mx-auto rounded-3xl flex items-center transform hover:scale-105 duration-500
+      }
+}
+
+@layer utilities{
+    .myFont{
+        font-size: 24px;
+    }
+    
+}
