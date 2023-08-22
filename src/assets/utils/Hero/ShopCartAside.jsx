@@ -12,7 +12,7 @@ const ShopCartAside = ({ cart }) => {
     cart = [];
   };
   return (
-    <div className="h-max bg-[#FFE0B3] content-center pt-5  pb-4 mt-20 md:sticky   md:top-{5rem} lg:fixed lg:px-6">
+    <div className="h-max bg-[#FFE0B3] content-center pt-5  pb-4 mt-20 md:sticky   md:top-{5rem} lg:fixed  lg:px-6">
       <h2 className="text-[#1C2B35] text-center text-xl font-bold tracking-wider pb-12">
         Order Summary
       </h2>
