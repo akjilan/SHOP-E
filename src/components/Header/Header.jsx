@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <nav className="header h-[5rem] bg-[#1C2B35]  flex justify-between px-28 fixed  w-full z-10 ">
       <section className="flex  pt-[20px]">
-        <img className="h-[2.5rem] w-[140px]  " src={logo} alt="" />git
+        <img className="h-[2.5rem] w-[140px]  " src={logo} alt="" />
       </section>
       <section className="flex space-x-8 items-center">
         <a className="text-white" href="">

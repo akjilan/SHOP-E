@@ -2,21 +2,52 @@ import React from "react";
 import { useState, useEffect } from "react";
 import ShopCartMain from "../../assets/utils/Hero/ShopCartMain";
 import ShopCartAside from "../../assets/utils/Hero/ShopCartAside";
+import { addToDb, getShoppingCart } from "../../assets/utilities/fakedb";
 
 const MyShops = () => {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
-    fetch("products.json")
+    fetch(
+      "https://raw.githubusercontent.com/ProgrammingHero1/ema-john-resources/main/fakeData/products.json"
+    )
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
 
-  const handleAddToCart = (product) => {
+  // console.log(products);
+  useEffect(() => {
+    const storedCart = getShoppingCart();
+    const savedCart = [];
+    // console.log(storedCart);
+    // console.log(products);
+    for (const id in storedCart) {
+      const addedProduct = products.find((product) => product.id === id);
+      //  console.log(addedProduct);
+      if (addedProduct) {
+        const quantity = storedCart[id];
+        addedProduct.quantity = quantity;
+        savedCart.push(addedProduct);
+      }
+    }
+    setCart(savedCart);
+  }, [products]);
+
+  const handleAddToCart = (selectedProduct) => {
     // console.log(product);
-    const newCart = [...cart, product];
+    let newCart=[];
+    const exists = cart.find((product) => product.id === selectedProduct.id);
+    if (!exists) {
+      selectedProduct.quantity = 1;
+      newCart=[...cart,selectedProduct];
+    } else {
+      const rest = products.filter((product)=>product.id!==selectedProduct.id);
+      selectedProduct.quantity += 1;
+      newCart=[...rest,exists];
+    }
     setCart(newCart);
+    addToDb(selectedProduct.id);
   };
   return (
     <>
