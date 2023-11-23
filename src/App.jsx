@@ -1,18 +1,8 @@
-
-import './App.css'
-import MyShops from './components/MyShops/MyShops'
-import Homepage from './pages/Homepage/Homepage'
+import "./App.css";
+import MyShops from "./components/MyShops/MyShops";
 
 function App() {
-
-
-  return (
-    <>
-     <Homepage></Homepage>
-     <MyShops></MyShops>
-
-    </>
-  )
+  return <></>;
 }
 
-export default App
+export default App;
