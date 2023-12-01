@@ -20,7 +20,7 @@ const Header = () => {
           Manage Inventory
         </Link>
         <Link className="text-white" to="/login">
-          Login
+          Login 
         </Link>
       </section>
     </nav>
