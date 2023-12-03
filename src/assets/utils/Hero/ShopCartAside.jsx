@@ -3,13 +3,14 @@ import clear from "../../images/trash.png";
 import arrow from "../../images/arrow-right.png";
 
 const ShopCartAside = ({ cart }) => {
+  let quantity = 0;
   let totalPrice = 0;
   let shippingCost = 0;
-  let quantity = 0;
 
+  console.log(cart);
   cart.map((singleProduct) => {
-    //  quantity=quantity+singleProduct.quantity;
-    console.log(singleProduct.quantity);
+
+
     quantity += singleProduct.quantity;
     totalPrice += singleProduct.price * singleProduct.quantity;
     shippingCost += singleProduct.shipping * singleProduct.quantity;
@@ -17,9 +18,7 @@ const ShopCartAside = ({ cart }) => {
   const grandTotal = parseFloat(
     (totalPrice + shippingCost + totalPrice / 20).toFixed(2)
   );
-  // const clearCart = () => {
-  //   cart = [];
-  // };
+
   return (
     <div className="h-max bg-[#FFE0B3] content-center pt-5  pb-4 mt-20 md:sticky   md:top-{5rem} lg:fixed  lg:px-6">
       <h2 className="text-[#1C2B35] text-center text-xl font-bold tracking-wider pb-12">
