@@ -2,7 +2,7 @@ import React from "react";
 import clear from "../../images/trash.png";
 import arrow from "../../images/arrow-right.png";
 
-const ShopCartAside = ({ cart }) => {
+const ShopCartAside = ({ cart ,handleClearCart,children}) => {
   let quantity = 0;
   let totalPrice = 0;
   let shippingCost = 0;
@@ -40,7 +40,7 @@ const ShopCartAside = ({ cart }) => {
         Grand Total: $<span>{grandTotal}</span>
       </p>
       <div className="px-6">
-        <button className="group md:py-3 py-1 content-center bg-[#FF3030] flex rounded w-full justify-center hover:bg-red-800  ">
+        <button onClick={handleClearCart} className="group md:py-3 py-1 content-center bg-[#FF3030] flex rounded w-full justify-center hover:bg-red-800  ">
           <p className="clearText font-bold tracking-wider pr-3 text-white group-hover:text-gray-300 group-hover:scale-x-105 transition ease-in-out delay-100 ">
             Clear Cart
           </p>
@@ -51,7 +51,7 @@ const ShopCartAside = ({ cart }) => {
         <a href="">
           <button className="group py-1 md:py-3 content-center bg-[#F90] flex rounded w-full justify-center hover:bg-black ">
             <p className="clearText font-bold tracking-wider md:pr-3 text-white  group-hover:scale-x-105 transition ease-in-out delay-100 ">
-              Review Order
+              {children}
             </p>
             <img className="group-hover:scale-x-105 " src={arrow} alt="" />
           </button>

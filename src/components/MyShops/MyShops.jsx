@@ -2,7 +2,8 @@ import React from "react";
 import { useState, useEffect } from "react";
 import ShopCartMain from "../../assets/utils/Hero/ShopCartMain";
 import ShopCartAside from "../../assets/utils/Hero/ShopCartAside";
-import { addToDb, getShoppingCart } from "../../assets/utilities/fakedb";
+import { addToDb, deleteShoppingCart, getShoppingCart } from "../../assets/utilities/fakedb";
+import { Link } from "react-router-dom";
 
 const MyShops = () => {
   const [products, setProducts] = useState([]);
@@ -49,6 +50,11 @@ const MyShops = () => {
     setCart(newCart);
     addToDb(selectedProduct.id);
   };
+
+  const handleClearCart =()=>{
+    setCart([]);
+    deleteShoppingCart();
+  }
   return (
     <>
       <section className="flex">
@@ -64,7 +70,12 @@ const MyShops = () => {
         </div>
 
         <div className="cartAside sm:w-1/2 md:w-1/3 lg:w-1/5 sm:align-middle  w-1/2">
-          <ShopCartAside cart={cart}></ShopCartAside>
+          <ShopCartAside cart={cart} handleClearCart={handleClearCart}>
+            <Link to="/order">
+              <button>review order</button>
+            
+            </Link>
+          </ShopCartAside>
         </div>
       </section>
     </>

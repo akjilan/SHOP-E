@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 
-import { useLoaderData } from 'react-router-dom'
+import { Link, useLoaderData } from 'react-router-dom'
 import ShopCartAside from '../../assets/utils/Hero/ShopCartAside';
 import ReviewItem from '../ReviewItem/ReviewItem';
 import { removeFromDb } from '../../assets/utilities/fakedb';
+import OrderSummery from '../../assets/utils/Hero/OrderSummery';
+import OrderAsideCart from './OrderAsideCart';
 
 const Order = () => {
   const savedCart = useLoaderData();
@@ -16,6 +18,10 @@ const Order = () => {
    removeFromDb(id);
   
   }
+  const clearCart = ()=>{
+    setCart([]);
+
+  }
   return (
 <>
 <section className="flex">
@@ -26,7 +32,12 @@ const Order = () => {
         </div>
 
         <div className="cartAside sm:w-1/2 md:w-1/3 lg:w-1/5 sm:align-middle  w-1/2">
-         <ShopCartAside cart={cart}></ShopCartAside>
+
+        <OrderAsideCart cart={cart}>
+          <Link to="/checkout">
+            Checkout
+          </Link>
+        </OrderAsideCart>
 
        
          
