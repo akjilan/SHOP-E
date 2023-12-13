@@ -1,27 +1,41 @@
-import React, { createContext, useState } from "react";
-import TestTwo from "../TestTwo/TestTwo";
-
-export const MyContext = createContext();
-
-export const MyAgeContext = createContext(0);
+import React from "react";
 
 const Inventory = () => {
-  const myName = "Raihanul Hoque JIlany";
-  const [age, setAGe] = useState(25);
-
   return (
-    <div>
-      <div className="cart md:content-centergap-5 md:justify-center pt-5 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] rounded-lg border-2 border-green-200 grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 lg:p-24 sm:p-5 sm:w-1/2 md:w-2/3 lg:w-4/5 md:space-x-3 w-full">
-        <h4>Inventory page </h4>
-        <h3>Current age : {age}</h3>
-
-        <MyAgeContext.Provider value={[age,setAGe]}>
-          <MyContext.Provider value={myName}>
-            <TestTwo></TestTwo>
-          </MyContext.Provider>
-        </MyAgeContext.Provider>
-      </div>
-    </div>
+    <>
+      <section className="flex justify-center gap-3 pt-32">
+        <div className="card w-96 bg-base-100 shadow-xl image-full">
+          <figure>
+            <img
+              src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
+              alt="Shoes"
+            />
+          </figure>
+          <div className="card-body">
+            <h2 className="card-title">Shoes!</h2>
+            <p>If a dog chews shoes whose shoes does he choose?</p>
+            <div className="card-actions justify-end">
+              <button className="btn btn-primary">Buy Now</button>
+            </div>
+          </div>
+        </div>
+        <div className="card lg:card-side bg-base-100 shadow-xl">
+          <figure>
+            <img
+              src="https://daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.jpg"
+              alt="Album"
+            />
+          </figure>
+          <div className="card-body">
+            <h2 className="card-title">New album is released!</h2>
+            <p>Click the button to listen on Spotiwhy app.</p>
+            <div className="card-actions justify-end">
+              <button className="btn btn-primary">Listen</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 };
 

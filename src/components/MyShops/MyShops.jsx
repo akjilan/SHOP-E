@@ -2,7 +2,11 @@ import React from "react";
 import { useState, useEffect } from "react";
 import ShopCartMain from "../../assets/utils/Hero/ShopCartMain";
 import ShopCartAside from "../../assets/utils/Hero/ShopCartAside";
-import { addToDb, deleteShoppingCart, getShoppingCart } from "../../assets/utilities/fakedb";
+import {
+  addToDb,
+  deleteShoppingCart,
+  getShoppingCart,
+} from "../../assets/utilities/fakedb";
 import { Link } from "react-router-dom";
 
 const MyShops = () => {
@@ -37,24 +41,26 @@ const MyShops = () => {
 
   const handleAddToCart = (selectedProduct) => {
     // console.log(product);
-    let newCart=[];
+    let newCart = [];
     const exists = cart.find((product) => product.id === selectedProduct.id);
     if (!exists) {
       selectedProduct.quantity = 1;
-      newCart=[...cart,selectedProduct];
+      newCart = [...cart, selectedProduct];
     } else {
-      const rest = products.filter((product)=>product.id!==selectedProduct.id);
+      const rest = products.filter(
+        (product) => product.id !== selectedProduct.id
+      );
       selectedProduct.quantity += 1;
-      newCart=[...rest,exists];
+      newCart = [...rest, exists];
     }
     setCart(newCart);
     addToDb(selectedProduct.id);
   };
 
-  const handleClearCart =()=>{
+  const handleClearCart = () => {
     setCart([]);
     deleteShoppingCart();
-  }
+  };
   return (
     <>
       <section className="flex">
@@ -73,7 +79,6 @@ const MyShops = () => {
           <ShopCartAside cart={cart} handleClearCart={handleClearCart}>
             <Link to="/order">
               <button>review order</button>
-            
             </Link>
           </ShopCartAside>
         </div>

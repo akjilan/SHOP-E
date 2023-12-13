@@ -49,7 +49,7 @@ const OrderSummery = ({cart}) => {
         </div>
         <div className="px-6 mt-3">
           <a href="">
-            <button className="group py-1 md:py-3 content-center bg-[#F90] flex rounded w-full justify-center hover:bg-black ">
+            <button  className="group py-1 md:py-3 content-center bg-[#F90] flex rounded w-full justify-center hover:bg-black ">
               <p className="clearText font-bold tracking-wider md:pr-3 text-white  group-hover:scale-x-105 transition ease-in-out delay-100 ">
                 Review Order
               </p>

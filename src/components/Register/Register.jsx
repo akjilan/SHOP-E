@@ -1,8 +1,28 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Context/Usercontext";
 
 const Register = () => {
-  const handleRegisterSubmit = () => {};
+  const { createAccount } = useContext(AuthContext);
+  const [errorText,setErrorText] = useState('');
+  const handleRegisterSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    // console.log(name, email, password);
+    createAccount(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        form.reset();
+        alert("Registration is succesfull");
+      })
+      .catch((error) => {
+        setErrorText(error).message;
+      });
+  };
   return (
     <>
       <div className=" hero mx-auto  bg-base-200">
@@ -66,6 +86,9 @@ const Register = () => {
                   </button>
                 </p>
               </div>
+              <p className="text-xs text-black font-bold">
+                {errorText}
+              </p>
             </form>
           </div>
         </div>

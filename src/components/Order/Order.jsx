@@ -34,7 +34,7 @@ const Order = () => {
         <div className="cartAside sm:w-1/2 md:w-1/3 lg:w-1/5 sm:align-middle  w-1/2">
 
         <OrderAsideCart cart={cart}>
-          <Link to="/checkout">
+          <Link to="/shipping">
             Checkout
           </Link>
         </OrderAsideCart>
